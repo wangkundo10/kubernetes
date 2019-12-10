@@ -3,21 +3,28 @@ kind: Deployment
 metadata:
   name: frontend
 spec:
-  replicas: 1
+  replicas: 1      #复制数量
   selector:
-    matchLabels:
-      tier: frontend
+    matchLabels:  #匹配标签
+      tier: frontend  
     matchExpressions:
-      - {key: tier, operator: In, values: [frontend]}
-  template:
-    metadata:
+      - {key: tier, operator: In, values: [frontend]}  #key:tier  操作符：in  值：frontend
+  template:       #模板
+    metadata: 
       labels:
         app: app-demo
         tier: frontend
     spec:
+      volumes:          #定义数据卷
+      - name: datavo1  #数据卷名称
+        hostPath:     #数据卷类型
+          path: "/tmp"
       containers:
       - name: tomcat-demo
-        image: tomcat
-        imagePullPolicy: IfNotPresent
+        volumeMounts:        #挂载到容器内
+          - mountPath: /mydata  #容器内的挂载目录
+            name: datavo1    #引用的数据卷名称
+        image: registry.cn-beijing.aliyuncs.com/wangkun_k8s/k8s:hjc1.0
+        imagePullPolicy: IfNotPresent  #如果镜像不存在，从仓库中下载
         ports:
         - containerPort: 8080
