@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis-php
+  labels:
+    name:redis-php
+spec:
+  containers:
+  - name: frontend        #第一个容器名
+    image: hub.c.163.com/library/php:latest   #镜像
+    ports:                       
+    - containerPort: 80                       #端口
+  - name: redis           #第二个容器名
+    images: hub.c.163.com/public/redis:2.8.4  #镜像
+    ports:
+    - containerPort: 6379      #端口
