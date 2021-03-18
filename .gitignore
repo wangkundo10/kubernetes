@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 bin
 obj
 *.user
 .vs
+=======
+out/
+_gopath/
+vendor/
+.vendor
+manifest-tool
+>>>>>>> 306e52eb38809d3b3bf7b7fbc0fd76514f2dac63
