@@ -1,2 +1,2 @@
-FROM ghcr.io/weaveworks/launcher/weave-kube:2.8.1
+FROM ghcr.io/weaveworks/launcher/weave-npc:2.8.1
 

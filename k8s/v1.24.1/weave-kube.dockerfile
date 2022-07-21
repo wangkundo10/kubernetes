@@ -1,2 +1,2 @@
-FROM docker.io/weaveworks/weave-kube:2.6.5
+FROM ghcr.io/weaveworks/launcher/weave-kube:2.8.1
 
